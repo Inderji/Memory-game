@@ -13,7 +13,7 @@ var timer = new Timer();
 timer.addEventListener('secondsUpdated', function (e) {                   $('#timer').html(timer.getTimeValues().toString());
 });
 
-// reference to reset button
+// reset button
 $('#reset-button').click(resetGame);
 // create and append card html
 function createCard(card) {
@@ -159,7 +159,8 @@ function showResults() {
     $('#sucess-result').empty();
     timer.pause();
     var scoreBoard = `
-        <h1 class="success"> Congratulations !!! </h1>
+        <p><img width="50%" src="img/Congratulation.gif" alt="Greetings" ></p>
+
         <p>
             <span class="score-titles">Moves:</span>
             <span class="score-values">${moves}</span>
@@ -169,18 +170,23 @@ function showResults() {
         <div class="text-center margin-top-2">
              <div class="star">
                 <i class="fa fa-star fa-3x"></i>
+                <p><img width="50%" src="img/giphy.gif" alt="Greetings" ></p>
              </div>
              <div class="star">
                 <i class="fa ${ (moves > 23) ? "fa-star-o" : "fa-star"}  fa-3x"></i>
+                <p><img width="50%" src="img/quote.gif" alt="Greetings" ></p>
              </div>
             <div class="star">
                 <i class="fa ${ (moves > 14) ? "fa-star-o" : "fa-star"} fa-3x"></i>
+                <p><img width="50%" src="img/gull.gif" alt="Greetings" ></p>
              </div>
         </div>
+        <p><img width="50%" src="img/giphy.gif" alt="Greetings" ></p>
         <div class="text-center margin-top-2" id="restart">
             <i class="fa fa-repeat fa-2x"></i>
           </div>
     `;
+
     $('#game-deck')[0].style.display = "none";
     $('#sucess-result')[0].style.display = "block";
     $('#sucess-result').append($(scoreBoard));
@@ -189,4 +195,3 @@ function showResults() {
 
 // start the game
 playGame();
-
