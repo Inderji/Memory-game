@@ -1,16 +1,14 @@
+
 /* Create a list that holds all of your cards
  */
 var cardLists = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-leaf", "fa-bicycle", "fa-bomb"];
-// to store number of moves and matches found
 var moves = 0;
 var match_found = 0;
-
-// check when first card is opened
 var game_started = false;
-
-// timer object
+var starRating = "3";
 var timer = new Timer();
-timer.addEventListener('secondsUpdated', function (e) {                   $('#timer').html(timer.getTimeValues().toString());
+timer.addEventListener('secondsUpdated', function (e) {
+    $('#timer').html(timer.getTimeValues().toString());
 });
 
 // reset button
@@ -109,11 +107,18 @@ $.fn.extend({
 function updateMoves() {
     moves += 1;
     $('#moves').html(`${moves} Moves`);
-    if (moves == 24) {
-        addBlankStar();
+
+    if(moves > 0 && moves <= 15){
+      starRating = starRating;
     }
-    else if (moves == 15) {
+
+    else if (moves >= 15 && moves <=20) {
         addBlankStar();
+        starRating = "2";
+    }
+    else if (moves > 20) {
+        addBlankStar();
+        starRating = "1";
     }
 }
 // check whether the game is finished or not
@@ -141,7 +146,7 @@ function resetGame() {
     $('#deck').empty();
     $('#stars').empty();
     $('#game-deck')[0].style.display = "";
-    $('#sucess-result')[0].style.display = "none";
+    $('#win-popup')[0].style.display = "none";
     game_started=false;
     timer.stop();
     $('#timer').html("00:00:00");
@@ -155,43 +160,34 @@ function playGame() {
     addStars(3);
 }
 // shows result on end game
+
+// Open popup when game is complete source: www.w3schools.com
 function showResults() {
-    $('#sucess-result').empty();
+
+  if (match_found === 8) {
     timer.pause();
-    var scoreBoard = `
-        <p><img width="50%" src="img/Congratulation.gif" alt="Greetings" ></p>
 
-        <p>
-            <span class="score-titles">Moves:</span>
-            <span class="score-values">${moves}</span>
-            <span class="score-titles">Time:</span>
-            <span class="score-values">${timer.getTimeValues().toString()}</span>
-        </p>
-        <div class="text-center margin-top-2">
-             <div class="star">
-                <i class="fa fa-star fa-3x"></i>
-                <p><img width="50%" src="img/giphy.gif" alt="Greetings" ></p>
-             </div>
-             <div class="star">
-                <i class="fa ${ (moves > 23) ? "fa-star-o" : "fa-star"}  fa-3x"></i>
-                <p><img width="50%" src="img/quote.gif" alt="Greetings" ></p>
-             </div>
-            <div class="star">
-                <i class="fa ${ (moves > 14) ? "fa-star-o" : "fa-star"} fa-3x"></i>
-                <p><img width="50%" src="img/gull.gif" alt="Greetings" ></p>
-             </div>
-        </div>
-        <p><img width="50%" src="img/giphy.gif" alt="Greetings" ></p>
-        <div class="text-center margin-top-2" id="restart">
-            <i class="fa fa-repeat fa-2x"></i>
-          </div>
-    `;
+    var modal = document.getElementById('win-popup');
+    var span = document.getElementsByClassName("close")[0];
 
-    $('#game-deck')[0].style.display = "none";
-    $('#sucess-result')[0].style.display = "block";
-    $('#sucess-result').append($(scoreBoard));
-    $('#restart').click(resetGame);
+    $("#total-moves").text(moves);
+    $("#total-stars").text(starRating);
+    $('#minutes').html(timer.getTimeValues().toString());
+    modal.style.display = "block";
+
+  // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+   $("#play-again-btn").on("click", function() {
+       location.reload()
+   });
+
+   clearInterval(timer);
+
+
+ }
 }
-
 // start the game
 playGame();
