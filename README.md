@@ -3,6 +3,7 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
+*[Downloading](#Downloading)
 
 
 ## Instructions
@@ -16,5 +17,5 @@ For specific, detailed instructions, look at the project instructions in the [Ud
 ## Downloading
 
  You can clone/download the project from
-    * 
+    * https://github.com/santoshkumarbhonagiri/Memory-game.git
 * You can run the index.html file directly from the directory or using command line.
