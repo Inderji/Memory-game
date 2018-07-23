@@ -4,7 +4,7 @@
 
 * [Instructions](#instructions)
 * [Downloading](#downloading)
-* [RulesandRegulations](#rules and regulations)
+* [Rules and Regulations](#rules and regulations)
 
 
 ## Instructions
@@ -22,7 +22,7 @@ For specific, detailed instructions, look at the project instructions in the [Ud
 * You can run the index.html file directly from the directory or using command line.
 
 
-## Rules and Regulations :-
+## Rules and Regulations
 1. You have to match cards with identical face.
 2. Your moves are counted out as you proceed the game.
 3. If your moves are equal to 15 then you will get 3 Stars.
