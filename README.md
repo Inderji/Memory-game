@@ -4,7 +4,7 @@
 
 * [Instructions](#instructions)
 * [Downloading](#downloading)
-* [Rules and Regulations](#rules and regulations)
+* [RulesandRegulations](#rules and regulations)
 
 
 ## Instructions
