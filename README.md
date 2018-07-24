@@ -32,3 +32,6 @@ Keep track of progress in the score panel area by viewing the star raiting, how 
 5. Else you will get 1 Star.
 6. You can also restart the game at any stage by clicking the restart button.
 
+## Required Dependencies
+Jquery
+Font-awesome
