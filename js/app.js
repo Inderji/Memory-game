@@ -1,12 +1,12 @@
 
 /* Create a list that holds all of your cards
  */
-var cardLists = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-leaf", "fa-bicycle", "fa-bomb"];
-var moves = 0;
-var match_found = 0;
-var game_started = false;
-var starRating = "3";
-var timer = new Timer();
+let cardLists = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-leaf", "fa-bicycle", "fa-bomb"];
+let moves = 0;
+let match_found = 0;
+let game_started = false;
+let starRating = "3";
+let timer = new Timer();
 timer.addEventListener('secondsUpdated', function (e) {
     $('#timer').html(timer.getTimeValues().toString());
 });
@@ -107,20 +107,16 @@ $.fn.extend({
 function updateMoves() {
     moves += 1;
     $('#moves').html(`${moves} Moves`);
-
-    if(moves > 0 && moves <= 15){
-      starRating = starRating;
-    }
-
-    else if (moves >= 15 && moves <=20) {
+    if (moves == 24) {
         addBlankStar();
-        starRating = "2";
+        starRating="1";
     }
-    else if (moves > 20) {
+    else if (moves == 15) {
         addBlankStar();
-        starRating = "1";
+        starRating="2";
     }
 }
+
 // check whether the game is finished or not
 function checkWin() {
     match_found += 1;
@@ -151,6 +147,7 @@ function resetGame() {
     timer.stop();
     $('#timer').html("00:00:00");
     playGame();
+    removeOpenCards();
 }
 // Init function
 function playGame() {
