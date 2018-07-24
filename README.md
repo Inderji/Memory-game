@@ -1,5 +1,5 @@
 # Memory Game Project
-A @udacity project developed using HTML, CSS,Javascript,Jquery.
+A udacity project developed using HTML, CSS,Javascript,Jquery.
 ## Table of Contents
 
 * [Instructions](#instructions)
