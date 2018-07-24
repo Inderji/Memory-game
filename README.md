@@ -33,5 +33,5 @@ Keep track of progress in the score panel area by viewing the star raiting, how 
 6. You can also restart the game at any stage by clicking the restart button.
 
 ## Required Dependencies
-Jquery
-Font-awesome
+*Jquery
+*Font-awesome
